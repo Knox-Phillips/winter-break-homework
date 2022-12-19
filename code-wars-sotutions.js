@@ -96,3 +96,20 @@ function duplicateCount(text){
     }
   }return counts
 }
+
+//7
+/*
+  Step 1: First split the string and store it into a variable called `newstr`
+  Step 2: Map the new arr and perform the following on each word:
+          If the word matches and alphanumeric characther, return the word without the first letter + the first letter of the word + 'ay' to the end of it
+          Else return the elem itself.
+  Step 3: return the mapped array joined by a space.
+*/
+function pigIt(str){
+  let newstr=str.split(' ')
+   let final = newstr.map(elem => {
+    if(elem.match(/\w/gi)) return elem.slice(1,elem.length) + elem[0] + 'ay'
+     else return elem
+  })
+   return final.join(' ')
+}

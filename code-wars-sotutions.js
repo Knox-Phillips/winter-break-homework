@@ -73,3 +73,26 @@ function moveZeros(arr) {
   }
  return newArr.concat(zeroes)
 }
+//6
+/*
+  Step 1: Initialize empty counter arry
+  Step 2: Store an obj containing each of the letters in the array in to a key and how many times those specific letters appear into a value making them key and value pairs
+  Step 3: Loop through the object checking if the value of the key (the letter) is greater than one (duplicate) and to add one to the counter
+  Step 4: Return the counter
+  
+  PS: (I saw a really clever solutiion that used the same method I tried first which was the indexOf() does not eqaul lastIndexOf() 
+    Using the filter method and then they took the length of the last remaining duplicates. This isnt for teachers just a mental note to check off for me.)
+  )
+*/
+function duplicateCount(text){
+  let counts = 0
+  let obj = text.toLowerCase().split('').reduce((acc, val) => {
+     acc[val] = acc[val] ? acc[val] += 1 : acc[val] = 1
+     return acc
+  },{})
+  for(let repeat in obj) {
+    if(obj[repeat] > 1) {
+      counts +=1
+    }
+  }return counts
+}
